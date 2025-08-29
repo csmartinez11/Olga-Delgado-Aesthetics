@@ -2,28 +2,186 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Olga Delgado Aesthetics — Professional Massage & Wellness</title>
-  <meta name="description" content="Relax, rejuvenate, and renew with professional massage and aesthetic services. Book Swedish, Deep Tissue, Hot Stone, and more." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="logo.jpg">
-  <meta property="og:title" content="Olga Delgado Aesthetics — Massage & Wellness" />
-  <meta property="og:description" content="Premium massage therapy in a serene, spa-like space. Book online." />
-  <meta property="og:type" content="website" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olga Delgado Aesthetics | Professional Aesthetic & Wellness Services</title>
+  <meta name="description" content="Experience premium aesthetic treatments and wellness services in Coral Springs. Specializing in Endermologie, Lymphatic Drainage, and advanced skin care treatments." />
   
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/olga.jpg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Olga Delgado Aesthetics | Professional Aesthetic & Wellness Services" />
+  <meta property="og:description" content="Experience premium aesthetic treatments and wellness services in Coral Springs. Book your appointment today." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://olga-delgado-aesthetics.vercel.app/" />
+  <meta property="og:image" content="https://olga-delgado-aesthetics.vercel.app/images/olga.jpg" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://olga-delgado-aesthetics.vercel.app/" />
+  
+  <!-- Preload Critical Assets -->
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="script.js" as="script">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Modern CSS Reset -->
   <style>
-    * {
+    /* Modern CSS Reset */
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    :root {
+      /* Color Palette */
+      --primary: #8B5FBF;
+      --primary-dark: #6B4694;
+      --secondary: #FF8A8B;
+      --accent: #FFD166;
+      --dark: #2D2A32;
+      --light: #F8F7F9;
+      --white: #FFFFFF;
+      --gray: #6B7280;
+      --light-gray: #F3F4F6;
+      
+      /* Typography */
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Poppins', sans-serif;
+      
+      /* Spacing */
+      --container: 1200px;
+      --section-padding: 5rem 1.5rem;
+      
+      /* Transitions */
+      --transition: all 0.3s ease;
+    }
+    
+    /* Base Styles */
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #fefefe;
+      font-family: var(--font-body);
+      line-height: 1.7;
+      color: var(--dark);
+      background-color: var(--white);
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    h1 { font-size: 3.5rem; }
+    h2 { font-size: 2.75rem; }
+    h3 { font-size: 2rem; }
+    h4 { font-size: 1.5rem; }
+    
+    p {
+      margin-bottom: 1.5rem;
+      color: var(--gray);
+    }
+    
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    a:hover {
+      color: var(--primary-dark);
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      font-size: 1rem;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--white);
+      box-shadow: 0 4px 15px rgba(139, 95, 191, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(139, 95, 191, 0.4);
+    }
+    
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--white);
+    }
+    
+    .section {
+      padding: var(--section-padding);
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h2 {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 1rem;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--primary);
+    }
+    
+    .text-center { text-align: center; }
+    .text-primary { color: var(--primary); }
+    .bg-light { background-color: var(--light); }
+    .bg-dark { 
+      background-color: var(--dark);
+      color: var(--white);
     }
 
     /* Header Styles */
@@ -481,74 +639,128 @@
 </head>
 <body>
 
+<!-- Skip to Content -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <!-- Header -->
-<header class="site-header" id="top">
-  <div class="header-inner">
-    <!-- Social Icons (Left) -->
-    <div class="social-icons">
-      <a href="https://www.facebook.com/olgadelgadolmt/" target="_blank" aria-label="Facebook">
-        <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook" width="36">
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <!-- Logo -->
+      <a href="/" class="logo-link">
+        <img src="olgalogo.jpg.png" alt="Olga Delgado Aesthetics" class="logo">
       </a>
-      <a href="https://www.instagram.com/olgadelgadoaesthetics/" target="_blank" aria-label="Instagram">
-  <img src="https://img.icons8.com/fluency/48/instagram-new.png" alt="Instagram" width="36">
-</a>
-      <a href="https://www.linkedin.com/in/olga-delgado-37387273/" target="_blank" aria-label="LinkedIn">
-  <img src="https://img.icons8.com/color/48/linkedin.png" alt="LinkedIn" width="36">
-</a>
-      <a href="https://wa.me/+19545605476" target="_blank" aria-label="WhatsApp">
-        <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp" width="36">
-      </a>
-    </div>
-    
-    <!-- Logo and Brand (Center) -->
-    <div class="brand-center">
-      <a class="brand" href="#home" aria-label="Olga Delgado Aesthetics Home">
-        <div class="brand-text">
-          <p class="tagline" style="font-size: 25px;"></p>
-        </div>
-      </a>
-    </div>
-
-<!-- Contact Info (Right) -->
- <span> <span style="font-size:1.2em; color:#ec4899; vertical-align:middle;">
-📍</span> 
-<a href="https://maps.google.com/?q=Coral+Springs,+FL" target="_blank" style="text-decoration: none; color: inherit;">Coral Springs, FL</a> 
-</span> <span style="margin-left:24px;">
-  📞</span> 
-<a href="tel:+19545399998" style="text-decoration: none; color: inherit;">(954) 539-9998</a> 
-</span> </div> </div> </header>
-
-<!-- Navigation -->
-<nav class="nav" id="primary-nav">
-  <div class="nav-container">
-    <a href="#home">Home</a>    
-    <a href="#services">Services</a>
-    <a href="#therapist">Therapist</a>
-    <a href="#testimonials">Reviews</a>
-    <a href="#about-us">About Us</a>
-    <a href="#booking" class="btn btn-primary">Book Now</a>
-  </div>
-</nav>
-
-<!-- Hero -->
-<section class="hero" id="home">
-  <div class="container hero-inner">
-    <div class="hero-copy">
-      <h1>Welcome to Olga Delgado Aesthetics</h1>
-      <p>Where elegance meets innovation, and relaxation becomes an art. Our signature treatments are thoughtfully designed to enhance your natural beauty, elevate your well-being, and leave you glowing from within.</p>
-      <div class="hero-cta">
+      
+      <!-- Mobile Menu Toggle -->
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+      
+      <!-- Navigation -->
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#therapist" class="nav-link">Therapist</a></li>
+          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="#about-us" class="nav-link">About Us</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <!-- CTA Button -->
+      <div class="header-cta">
+        <a href="#book-now" class="btn btn-primary">Book Now</a>
       </div>
-      <ul class="hero-badges" aria-label="Highlights">
-  <li style="color: black;">✔ Licensed Therapist</li>
-  <li style="color: black;">✔ Hygienic & Safe</li>
-  <li style="color: black;">✔ Personalized Care</li>
-      </ul>
+      
+      <!-- Social Icons -->
+      <div class="social-icons">
+        <a href="https://www.facebook.com/olgadelgadolmt/" target="_blank" aria-label="Facebook" rel="noopener">
+          <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook" width="24" height="24">
+        </a>
+        <a href="https://www.instagram.com/olgadelgadoaesthetics/" target="_blank" aria-label="Instagram" rel="noopener">
+          <img src="https://img.icons8.com/fluency/48/instagram-new.png" alt="Instagram" width="24" height="24">
+        </a>
+        <a href="https://wa.me/+19545605476" target="_blank" aria-label="WhatsApp" rel="noopener">
+          <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp" width="24" height="24">
+        </a>
+      </div>
+      
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <div class="location">
+          <span class="location-icon">📍</span>
+          <a href="https://maps.google.com/?q=Coral+Springs,+FL" target="_blank" rel="noopener">Coral Springs, FL</a>
+        </div>
+        <div class="phone">
+          <span class="phone-icon">📞</span>
+          <a href="tel:+19545399998">(954) 539-9998</a>
+        </div>
+      </div>
     </div>
-    <div class="hero-visual" role="img" aria-label="Calming spa environment">
-      <img src="olgafrontpage.jpg.png" 
-     alt="Olga Delgado Aesthetics - Professional spa treatment" 
-     style="width: 200000px; height: auto; border: 5px solid pink;" />
+  </div>
+  
+  <!-- Mobile Navigation Overlay -->
+  <div class="overlay"></div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero" id="home" aria-label="Welcome to Olga Delgado Aesthetics">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="pre-title">Welcome to</span>
+        <h1>Olga Delgado <span class="text-primary">Aesthetics</span></h1>
+        <p class="lead">Experience the perfect blend of science and wellness with our premium aesthetic treatments. Enhance your natural beauty and restore your confidence with our personalized care.</p>
+        <div class="hero-cta">
+          <a href="#book-now" class="btn btn-primary">Book Your Session</a>
+          <a href="#services" class="btn btn-video">
+            <span class="play-icon"><i class="fas fa-play"></i></span>
+            Watch Our Story
+          </a>
+        </div>
+        <div class="hero-features">
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Certified Specialists</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Premium Products</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Personalized Care</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="image-wrapper">
+          <img src="images/olga.jpg" alt="Olga Delgado - Aesthetic Specialist" class="main-image">
+          <div class="experience-badge">
+            <span class="years">25+</span>
+            <span class="text">Years Experience</span>
+          </div>
+          <div class="review-badge">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span>500+ Happy Clients</span>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+  
+  <!-- Hero Wave -->
+  <div class="hero-wave">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+      <path fill="#FFFFFF" fill-opacity="1" d="M0,64L48,69.3C96,75,192,85,288,90.7C384,96,480,96,576,85.3C672,75,768,53,864,48C960,43,1056,53,1152,69.3C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
   </div>
 </section>
 
