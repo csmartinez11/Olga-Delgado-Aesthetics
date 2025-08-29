@@ -36,6 +36,18 @@
   
   <!-- Modern CSS Reset -->
   <style>
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Smooth scroll for anchor links */
+    @media (prefers-reduced-motion: no-preference) {
+      html {
+        scroll-behavior: smooth;
+      }
+    }
+    
     /* Treatment Gallery Styles */
     .treatment-gallery {
       display: grid;
@@ -148,14 +160,19 @@
 
     :root {
       /* Color Palette */
-      --primary: #8B5FBF;
-      --primary-dark: #6B4694;
-      --secondary: #FF8A8B;
-      --accent: #FFD166;
-      --dark: #2D2A32;
-      --light: #F8F7F9;
-      --white: #FFFFFF;
-      --gray: #6B7280;
+      --primary: #7b1fa2; /* Darker purple for better contrast */
+      --primary-light: #ae52d4;
+      --primary-dark: #4a0072;
+      --secondary: #e65100; /* Darker orange for better contrast */
+      --dark: #212121; /* Darker gray for better contrast */
+      --light: #f5f5f5;
+      --gray: #555; /* Adjusted for better contrast */
+      --white: #fff;
+      --black: #000;
+      --text-light: #f5f5f5;
+      --text-dark: #212121;
+      --success: #2e7d32; /* For form success messages */
+      --error: #c62828; /* For form error messages */
       --light-gray: #F3F4F6;
       
       /* Typography */
@@ -208,8 +225,9 @@
       transition: var(--transition);
     }
     
-    a:hover {
+    a:hover, a:focus {
       color: var(--primary-dark);
+      text-decoration: underline;
     }
     
     img {
@@ -227,30 +245,33 @@
     
     .btn {
       display: inline-block;
-      padding: 0.8rem 2rem;
+      padding: 12px 28px;
+      background: var(--primary);
+      color: var(--text-light);
+      border: 2px solid transparent;
       border-radius: 50px;
-      font-weight: 600;
-      text-align: center;
-      cursor: pointer;
-      transition: var(--transition);
-      border: none;
       font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+      min-width: 180px;
     }
     
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: var(--white);
-      box-shadow: 0 4px 15px rgba(139, 95, 191, 0.3);
+    .btn:hover, .btn:focus {
+      background: var(--primary-dark);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      outline: none;
     }
     
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(139, 95, 191, 0.4);
-    }
-    
-    .btn-secondary {
-      background: var(--secondary);
-      color: var(--white);
+    .btn:focus-visible {
+      outline: 3px solid var(--secondary);
+      outline-offset: 2px;
     }
     
     .section {
@@ -328,6 +349,29 @@
       transform: scale(1.1);
     }
 
+    .logo {
+      max-height: 70px;
+      width: auto;
+      transition: transform 0.3s ease;
+    }
+    
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+    
+    .tagline {
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 0;
+      line-height: 1.2;
+    }
+
     .brand-center {
       flex: 1;
       display: flex;
@@ -342,13 +386,6 @@
       color: #333;
     }
 
-    .logo {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
     .brand-text h1 {
       font-size: 28px;
       font-weight: 300;
@@ -356,16 +393,6 @@
       color: #333;
       margin: 0;
       text-transform: lowercase;
-    }
-
-    .tagline {
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #888;
-      font-weight: 400;
-      margin: 2px 0 0 0;
-      text-align: left;
     }
 
     .contact-info {
@@ -495,21 +522,22 @@
     .hero-copy h1 {
       font-size: 3rem;
       font-weight: 700;
-      color: #1f2937;
+      color: var(--dark);
       margin-bottom: 1rem;
       line-height: 1.2;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
 
     .hero-copy h1:nth-of-type(2) {
       font-size: 2rem;
       font-weight: 400;
-      color: #6b7280;
+      color: var(--gray);
       margin-bottom: 1.5rem;
     }
 
     .hero-copy p {
       font-size: 1.1rem;
-      color: #6b7280;
+      color: var(--gray);
       margin-bottom: 2rem;
       line-height: 1.7;
     }
@@ -680,28 +708,122 @@
     }
 
     /* Responsive Design */
+    @media (max-width: 992px) {
+      .header-top {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      
+      .main-nav {
+        order: 3;
+        width: 100%;
+        margin: 15px 0 0 0 !important;
+      }
+      
+      .nav-list {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px !important;
+      }
+      
+      .header-cta {
+        margin: 0 auto !important;
+      }
+    }
+    
     @media (max-width: 768px) {
       .header-inner {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
         text-align: center;
+        padding: 0 15px !important;
       }
-
+      
+      .logo {
+        height: 50px !important;
+      }
+      
+      .top-banner h3 {
+        font-size: 0.9rem !important;
+        padding: 5px 0;
+      }
+      
+      .header-bottom {
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 15px !important;
+      }
+      
       .contact-info {
         align-items: center;
+        gap: 12px !important;
+      }
+      
+      .social-icons {
+        justify-content: center;
+        margin-top: 10px;
       }
 
-      .brand-text h1 {
-        font-size: 24px;
+      /* Navigation Toggle Styles */
+      .nav-toggle {
+        display: flex;
+        background: none;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1000;
       }
-
-      .nav-container {
-        gap: 20px;
+      
+      .hamburger {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: var(--dark);
+        position: relative;
+        transition: all 0.3s ease;
       }
-
+      
+      .hamburger::before,
+      .hamburger::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: var(--dark);
+        transition: all 0.3s ease;
+      }
+      
+      .hamburger::before {
+        transform: translateY(-8px);
+      }
+      
+      .hamburger::after {
+        transform: translateY(8px);
+      }
+      
+      .nav-toggle[aria-expanded="true"] .hamburger {
+        background: transparent;
+      }
+      
+      .nav-toggle[aria-expanded="true"] .hamburger::before {
+        transform: rotate(45deg);
+      }
+      
+      .nav-toggle[aria-expanded="true"] .hamburger::after {
+        transform: rotate(-45deg);
+      }
+      
+      .main-nav {
+        display: none;
+      }
+      
+      .main-nav.active {
+        display: block;
+      }
+      
       .hero-inner {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
         text-align: center;
       }
 
@@ -723,6 +845,47 @@
 
       .nav-toggle {
         display: flex;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+      
+      .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        background: white;
+        padding: 80px 30px 30px;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        z-index: 999;
+      }
+      
+      .main-nav.active {
+        right: 0;
+      }
+      
+      .nav-list {
+        flex-direction: column;
+        gap: 15px !important;
+      }
+      
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 998;
+      }
+      
+      .overlay.active {
+        display: block;
       }
 
       .footer-inner {
@@ -771,19 +934,22 @@
       <!-- Header Top Row -->
       <div class="header-top" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
         <!-- Logo -->
-        <a href="/" class="logo-link" style="flex-shrink: 0;">
-          <img src="olgalogo.jpg.png" alt="Olga Delgado Aesthetics" class="logo" style="height: 60px; width: auto;">
-        </a>
+        <div class="logo-container">
+          <a href="/" class="logo-link">
+            <img src="olgalogo.jpg.png" alt="Olga Delgado Aesthetics" class="logo">
+          </a>
+          <p class="tagline">Refresh! Refine! Radiate!</p>
+        </div>
         
         <!-- Desktop Navigation -->
         <nav class="main-nav" style="margin: 0 20px;">
           <ul class="nav-list" style="display: flex; gap: 25px; list-style: none; margin: 0; padding: 0;">
-            <li><a href="#home" class="nav-link active" style="color: var(--dark); font-weight: 500; padding: 8px 0; position: relative; transition: color 0.3s ease; text-decoration: none;">Home</a></li>
-            <li><a href="#services" class="nav-link" style="color: var(--dark); font-weight: 500; padding: 8px 0; position: relative; transition: color 0.3s ease; text-decoration: none;">Services</a></li>
-            <li><a href="#therapist" class="nav-link" style="color: var(--dark); font-weight: 500; padding: 8px 0; position: relative; transition: color 0.3s ease; text-decoration: none;">Therapist</a></li>
-            <li><a href="#testimonials" class="nav-link" style="color: var(--dark); font-weight: 500; padding: 8px 0; position: relative; transition: color 0.3s ease; text-decoration: none;">Testimonials</a></li>
-            <li><a href="#about-us" class="nav-link" style="color: var(--dark); font-weight: 500; padding: 8px 0; position: relative; transition: color 0.3s ease; text-decoration: none;">About Us</a></li>
-            <li><a href="#contact" class="nav-link" style="color: var(--dark); font-weight: 500; padding: 8px 0; position: relative; transition: color 0.3s ease; text-decoration: none;">Contact</a></li>
+            <li><a href="#home" class="nav-link active" style="color: var(--dark); font-weight: 500; padding: 8px 12px; position: relative; transition: color 0.3s ease; text-decoration: none; white-space: nowrap;">Home</a></li>
+            <li><a href="#services" class="nav-link" style="color: var(--dark); font-weight: 500; padding: 8px 12px; position: relative; transition: color 0.3s ease; text-decoration: none; white-space: nowrap;">Services</a></li>
+            <li><a href="#therapist" class="nav-link" style="color: var(--dark); font-weight: 500; padding: 8px 12px; position: relative; transition: color 0.3s ease; text-decoration: none; white-space: nowrap;">Meet the Team</a></li>
+            <li><a href="#about-us" class="nav-link" style="color: var(--dark); font-weight: 500; padding: 8px 12px; position: relative; transition: color 0.3s ease; text-decoration: none; white-space: nowrap;">About Us</a></li>
+            <li><a href="#testimonials" class="nav-link" style="color: var(--dark); font-weight: 500; padding: 8px 12px; position: relative; transition: color 0.3s ease; text-decoration: none; white-space: nowrap;">Testimonials</a></li>
+            <li><a href="#contact" class="nav-link" style="color: var(--dark); font-weight: 500; padding: 8px 12px; position: relative; transition: color 0.3s ease; text-decoration: none; white-space: nowrap;">Contact</a></li>
           </ul>
         </nav>
         
@@ -831,15 +997,6 @@
 
 <!-- Hero Section -->
 <section class="hero" id="home" aria-label="Welcome to Olga Delgado Aesthetics">
-  <div class="container">
-    <div class="tagline" style="text-align: center; margin: 2rem 0 4rem 0;">
-      <h2 class="animate-words" style="font-size: 3rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 4px; overflow: hidden; height: 1.2em;">
-        <span class="word">Refresh!</span>
-        <span class="word">Refine!</span>
-        <span class="word">Radiate!</span>
-      </h2>
-      <div class="divider" style="width: 80px; height: 3px; background: linear-gradient(90deg, var(--primary), #FF8A8B); margin: 1rem auto; animation: fadeIn 2s ease-in-out;"></div>
-    </div>
   <div class="container">
     <div class="hero-grid">
       <div class="hero-content">
@@ -1345,6 +1502,95 @@
 <script>
   // Auto update year in footer
   document.getElementById('year').textContent = new Date().getFullYear();
+  
+  // Mobile Navigation Toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const mainNav = document.querySelector('.main-nav');
+  const overlay = document.querySelector('.overlay');
+  
+  navToggle.addEventListener('click', () => {
+    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', !isExpanded);
+    mainNav.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
+  });
+  
+  // Smooth scroll and close mobile menu when clicking on a nav link
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      // Close mobile menu if open
+      if (mainNav.classList.contains('active')) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        mainNav.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+      
+      // Skip if it's a different type of anchor
+      if (this.getAttribute('href') === '#' || this.getAttribute('href') === '#!') return;
+      
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        // Calculate the position to scroll to, accounting for the header
+        const headerOffset = 100;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  
+  // Close mobile menu when clicking on overlay
+  overlay.addEventListener('click', () => {
+    navToggle.setAttribute('aria-expanded', 'false');
+    mainNav.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  });
+  
+  // Add active class to current section in navigation
+  const sections = document.querySelectorAll('section[id]');
+  
+  window.addEventListener('scroll', () => {
+    let current = '';
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      
+      if (pageYOffset >= sectionTop - 200) {
+        current = section.getAttribute('id');
+      }
+    });
+    
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  });
+  
+  // Close mobile menu when window is resized to desktop
+  function handleResize() {
+    if (window.innerWidth > 992) {
+      navToggle.setAttribute('aria-expanded', 'false');
+      mainNav.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  }
+  
+  window.addEventListener('resize', handleResize);
 </script>
 
 </body>
