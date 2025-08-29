@@ -691,24 +691,15 @@
       </div>
       
       <!-- Contact Info -->
-      <div class="contact-info">
-        <div class="location">
-          <span class="location-icon">📍</span>
-          <div class="contact-info" style="display: flex; flex-direction: column; gap: 8px; margin-left: 2rem;">
-            <a href="https://maps.app.goo.gl/example" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px;">
-              <i class="fas fa-map-marker-alt" style="font-size: 1.2rem; color: var(--primary);"></i>
-              <span>1234 Beauty St, Coral Springs, FL</span>
-            </a>
-            <a href="tel:+15551234567" style="display: flex; align-items: center; gap: 8px;">
-              <i class="fas fa-phone" style="font-size: 1.2rem; color: var(--primary);"></i>
-              <span>(555) 123-4567</span>
-            </a>
-          </div>
-        </div>
-        <div class="phone">
-          <span class="phone-icon">📞</span>
-          <a href="tel:+19545399998">(954) 539-9998</a>
-        </div>
+      <div class="header-contact" style="display: flex; flex-direction: column; gap: 8px; margin-left: auto; padding: 8px 0; text-align: right;">
+        <a href="https://maps.app.goo.gl/example" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--dark); transition: color 0.3s ease;">
+          <i class="fas fa-map-marker-alt" style="color: var(--primary); font-size: 1.1rem;"></i>
+          <span>1234 Beauty St, Coral Springs, FL</span>
+        </a>
+        <a href="tel:+19545399998" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--dark); transition: color 0.3s ease;">
+          <i class="fas fa-phone" style="color: var(--primary); font-size: 1.1rem;"></i>
+          <span>(954) 539-9998</span>
+        </a>
       </div>
     </div>
   </div>
@@ -720,13 +711,20 @@
 <!-- Hero Section -->
 <section class="hero" id="home" aria-label="Welcome to Olga Delgado Aesthetics">
   <div class="container">
+    <div class="tagline" style="text-align: center; margin-bottom: 2rem;">
+      <h2 style="font-size: 2.5rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">
+        Refresh! Refine! Radiate!
+      </h2>
+      <div class="divider" style="width: 80px; height: 3px; background: linear-gradient(90deg, var(--primary), #FF8A8B); margin: 1rem auto;"></div>
+    </div>
+  <div class="container">
     <div class="hero-grid">
       <div class="hero-content">
         <span class="pre-title">Welcome to</span>
         <h1>Olga Delgado <span class="text-primary">Aesthetics</span></h1>
         <p class="lead">Experience the perfect blend of science and wellness with our premium aesthetic treatments. Enhance your natural beauty and restore your confidence with our personalized care.</p>
         <div class="hero-cta">
-          <a href="#book-now" class="btn btn-primary">Book Your Session</a>
+          <a href="#booking" class="btn btn-primary" style="text-decoration: none;">Book Your Session</a>
           <a href="#services" class="btn btn-video">
             <span class="play-icon"><i class="fas fa-play"></i></span>
             Watch Our Story
@@ -840,29 +838,32 @@
   <div class="container">
     <header class="section-header">
       <h2>About Us</h2>
-      <p class="tagline" style="font-size: 2rem; color: var(--primary); font-weight: 600; margin-bottom: 2rem;">
-        Refresh! Refine! Radiate!
-      </p>
     </header>
     <div class="about-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
       <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
         At Olga Delgado Aesthetics, we believe in the power of professional skincare and body treatments to enhance your natural beauty and wellbeing. With over 25 years of experience in the industry, we bring expertise, passion, and personalized care to every treatment.
       </p>
-      <div class="about-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 3rem 0;">
-        <div class="feature">
-          <i class="fas fa-star" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
-          <h4>Expert Care</h4>
-          <p>Licensed professionals with extensive training and experience</p>
+      <div class="about-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin: 3rem 0;">
+        <div class="feature" style="background: rgba(139, 95, 191, 0.05); padding: 2rem; border-radius: 12px; transition: all 0.3s ease; cursor: default; border: 1px solid rgba(139, 95, 191, 0.1);" 
+             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)';"
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+          <i class="fas fa-award" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; display: block;"></i>
+          <h4 style="color: var(--primary); margin-bottom: 1rem;">Expert Care</h4>
+          <p style="color: var(--dark); line-height: 1.7;">Licensed professionals with extensive training and experience in advanced aesthetic treatments</p>
         </div>
-        <div class="feature">
-          <i class="fas fa-spa" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
-          <h4>Premium Treatments</h4>
-          <p>State-of-the-art technology and premium products</p>
+        <div class="feature" style="background: rgba(255, 138, 139, 0.05); padding: 2rem; border-radius: 12px; transition: all 0.3s ease; cursor: default; border: 1px solid rgba(255, 138, 139, 0.1);"
+             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)';"
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+          <i class="fas fa-microscope" style="font-size: 2.5rem; color: #FF8A8B; margin-bottom: 1.5rem; display: block;"></i>
+          <h4 style="color: #FF8A8B; margin-bottom: 1rem;">Premium Technology</h4>
+          <p style="color: var(--dark); line-height: 1.7;">State-of-the-art equipment and premium products for optimal results</p>
         </div>
-        <div class="feature">
-          <i class="fas fa-heart" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
-          <h4>Personalized Approach</h4>
-          <p>Customized treatments for your unique needs</p>
+        <div class="feature" style="background: rgba(255, 209, 102, 0.05); padding: 2rem; border-radius: 12px; transition: all 0.3s ease; cursor: default; border: 1px solid rgba(255, 209, 102, 0.1);"
+             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)';"
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+          <i class="fas fa-user-shield" style="font-size: 2.5rem; color: #FFD166; margin-bottom: 1.5rem; display: block;"></i>
+          <h4 style="color: #FFD166; margin-bottom: 1rem;">Personalized Care</h4>
+          <p style="color: var(--dark); line-height: 1.7;">Customized treatment plans tailored to your unique needs and goals</p>
         </div>
       </div>
     </div>
@@ -887,7 +888,7 @@
 
 
 <!-- Booking Section -->
-<section id="booking" class="section section-emphasis">
+<section id="booking" class="section" style="scroll-margin-top: 100px;"> section-emphasis">
   <div class="container">
     <header class="section-header">
       <h2>Book Your Session</h2>
