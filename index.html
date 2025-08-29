@@ -187,20 +187,23 @@
     /* Header Styles */
     .site-header {
       background-color: white;
-      padding: 20px 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      padding: 15px 0;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      font-family: var(--font-body);
     }
 
     .header-inner {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 0 20px;
+      align-items: center;
+      padding: 0 40px;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
     .social-icons {
@@ -660,46 +663,59 @@
         <span class="hamburger"></span>
       </button>
       
-      <!-- Navigation -->
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <li><a href="#home" class="nav-link active">Home</a></li>
-          <li><a href="#services" class="nav-link">Services</a></li>
-          <li><a href="#therapist" class="nav-link">Therapist</a></li>
-          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-          <li><a href="#about-us" class="nav-link">About Us</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
-      
-      <!-- CTA Button -->
-      <div class="header-cta">
-        <a href="#book-now" class="btn btn-primary">Book Now</a>
+      <!-- Header Top Row -->
+      <div class="header-top" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+        <!-- Logo -->
+        <a href="/" class="logo-link" style="flex-shrink: 0;">
+          <img src="olgalogo.jpg.png" alt="Olga Delgado Aesthetics" class="logo" style="height: 60px; width: auto;">
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="main-nav" style="margin: 0 20px;">
+          <ul class="nav-list" style="display: flex; gap: 25px; list-style: none; margin: 0; padding: 0;">
+            <li><a href="#home" class="nav-link active" style="color: var(--dark); font-weight: 500; padding: 8px 0; position: relative; transition: color 0.3s ease; text-decoration: none;">Home</a></li>
+            <li><a href="#services" class="nav-link" style="color: var(--dark); font-weight: 500; padding: 8px 0; position: relative; transition: color 0.3s ease; text-decoration: none;">Services</a></li>
+            <li><a href="#therapist" class="nav-link" style="color: var(--dark); font-weight: 500; padding: 8px 0; position: relative; transition: color 0.3s ease; text-decoration: none;">Therapist</a></li>
+            <li><a href="#testimonials" class="nav-link" style="color: var(--dark); font-weight: 500; padding: 8px 0; position: relative; transition: color 0.3s ease; text-decoration: none;">Testimonials</a></li>
+            <li><a href="#about-us" class="nav-link" style="color: var(--dark); font-weight: 500; padding: 8px 0; position: relative; transition: color 0.3s ease; text-decoration: none;">About Us</a></li>
+            <li><a href="#contact" class="nav-link" style="color: var(--dark); font-weight: 500; padding: 8px 0; position: relative; transition: color 0.3s ease; text-decoration: none;">Contact</a></li>
+          </ul>
+        </nav>
+        
+        <!-- CTA Button -->
+        <div class="header-cta" style="margin-left: auto;">
+          <a href="#booking" class="btn btn-primary" style="white-space: nowrap; text-decoration: none; font-weight: 600; padding: 10px 25px; border-radius: 30px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; transition: all 0.3s ease;">
+            Book Now
+          </a>
+        </div>
       </div>
       
-      <!-- Social Icons -->
-      <div class="social-icons">
-        <a href="https://www.facebook.com/olgadelgadolmt/" target="_blank" aria-label="Facebook" rel="noopener">
-          <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook" width="24" height="24">
-        </a>
-        <a href="https://www.instagram.com/olgadelgadoaesthetics/" target="_blank" aria-label="Instagram" rel="noopener">
-          <img src="https://img.icons8.com/fluency/48/instagram-new.png" alt="Instagram" width="24" height="24">
-        </a>
-        <a href="https://wa.me/+19545605476" target="_blank" aria-label="WhatsApp" rel="noopener">
-          <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp" width="24" height="24">
-        </a>
-      </div>
-      
-      <!-- Contact Info -->
-      <div class="header-contact" style="display: flex; flex-direction: column; gap: 8px; margin-left: auto; padding: 8px 0; text-align: right;">
-        <a href="https://maps.app.goo.gl/example" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--dark); transition: color 0.3s ease;">
-          <i class="fas fa-map-marker-alt" style="color: var(--primary); font-size: 1.1rem;"></i>
-          <span>1234 Beauty St, Coral Springs, FL</span>
-        </a>
-        <a href="tel:+19545399998" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--dark); transition: color 0.3s ease;">
-          <i class="fas fa-phone" style="color: var(--primary); font-size: 1.1rem;"></i>
-          <span>(954) 539-9998</span>
-        </a>
+      <!-- Header Bottom Row -->
+      <div class="header-bottom" style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding-top: 10px; border-top: 1px solid rgba(0,0,0,0.05);">
+        <!-- Contact Info -->
+        <div class="header-contact" style="display: flex; gap: 30px;">
+          <a href="https://maps.app.goo.gl/example" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--dark); transition: color 0.3s ease; font-size: 0.95rem;">
+            <i class="fas fa-map-marker-alt" style="color: var(--primary); font-size: 1.1rem; min-width: 20px;"></i>
+            <span>1234 Beauty St, Coral Springs, FL</span>
+          </a>
+          <a href="tel:+19545399998" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--dark); transition: color 0.3s ease; font-size: 0.95rem;">
+            <i class="fas fa-phone" style="color: var(--primary); font-size: 1.1rem; min-width: 20px;"></i>
+            <span>(954) 539-9998</span>
+          </a>
+        </div>
+        
+        <!-- Social Icons -->
+        <div class="social-icons" style="display: flex; gap: 15px; margin-left: auto;">
+          <a href="https://www.facebook.com/olgadelgadolmt/" target="_blank" aria-label="Facebook" rel="noopener" style="color: #1877F2; transition: transform 0.3s ease;">
+            <i class="fab fa-facebook-f" style="font-size: 1.2rem;"></i>
+          </a>
+          <a href="https://www.instagram.com/olgadelgadoaesthetics/" target="_blank" aria-label="Instagram" rel="noopener" style="color: #E4405F; transition: transform 0.3s ease;">
+            <i class="fab fa-instagram" style="font-size: 1.2rem;"></i>
+          </a>
+          <a href="https://wa.me/+19545605476" target="_blank" aria-label="WhatsApp" rel="noopener" style="color: #25D366; transition: transform 0.3s ease;">
+            <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i>
+          </a>
+        </div>
       </div>
     </div>
   </div>
