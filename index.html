@@ -36,6 +36,109 @@
   
   <!-- Modern CSS Reset -->
   <style>
+    /* Treatment Gallery Styles */
+    .treatment-gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .treatment-gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .treatment-gallery img {
+      transform: scale(1.02);
+    }
+
+    /* Services Grid Styles */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 20px 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin: 20px 20px 10px;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .card p {
+      color: var(--gray);
+      margin: 0 20px 20px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    /* Animation Keyframes */
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .animate-words {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .animate-words .word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateX(-100%);
+      animation: slideIn 0.8s forwards;
+    }
+
+    .animate-words .word:nth-child(1) { animation-delay: 0.3s; }
+    .animate-words .word:nth-child(2) { animation-delay: 0.8s; }
+    .animate-words .word:nth-child(3) { animation-delay: 1.3s; }
+
     /* Modern CSS Reset */
     *, *::before, *::after {
       margin: 0;
@@ -187,8 +290,8 @@
     /* Header Styles */
     .site-header {
       background-color: white;
-      padding: 15px 0;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      padding: 8px 0 4px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -201,9 +304,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 40px;
+      padding: 0 30px;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 10px;
     }
 
     .social-icons {
@@ -659,8 +762,8 @@
       </button>
 
       <!-- Top Banner -->
-      <div class="top-banner" style="width: 100%; text-align: center; padding: 8px 0; background: var(--light); margin-bottom: 10px;">
-        <h3 style="margin: 0; color: var(--primary); font-size: 1.2rem; letter-spacing: 2px;">
+      <div class="top-banner" style="width: 100%; text-align: center; padding: 6px 0; background: var(--light); margin-bottom: 8px;">
+        <h3 style="margin: 0; color: var(--primary); font-size: 1.1rem; letter-spacing: 2px; font-weight: 600;">
           Refresh! Refine! Radiate!
         </h3>
       </div>
@@ -730,10 +833,12 @@
 <section class="hero" id="home" aria-label="Welcome to Olga Delgado Aesthetics">
   <div class="container">
     <div class="tagline" style="text-align: center; margin: 2rem 0 4rem 0;">
-      <h2 style="font-size: 2.5rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">
-        Your Journey to Radiance Starts Here
+      <h2 class="animate-words" style="font-size: 3rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 4px; overflow: hidden; height: 1.2em;">
+        <span class="word">Refresh!</span>
+        <span class="word">Refine!</span>
+        <span class="word">Radiate!</span>
       </h2>
-      <div class="divider" style="width: 80px; height: 3px; background: linear-gradient(90deg, var(--primary), #FF8A8B); margin: 1rem auto;"></div>
+      <div class="divider" style="width: 80px; height: 3px; background: linear-gradient(90deg, var(--primary), #FF8A8B); margin: 1rem auto; animation: fadeIn 2s ease-in-out;"></div>
     </div>
   <div class="container">
     <div class="hero-grid">
@@ -774,35 +879,78 @@
   </div>
 </section>
 
-<!-- Services --> <section id="services" class="section"> <div class="container"> <header class="section-header"> 
-  <h2>Our Services</h2> <p>Choose from our most popular treatments. All sessions include a brief consultation to tailor your experience.
-</p> </header> <!-- Updated grid container --> <div class="services-grid"> <article class="card"> 
-  <h3>Endermologie</h3> <p>Non-invasive treatment that reduces cellulite, firms the skin, and reshapes your silhouette. Using advanced mechanical stimulation, it boosts circulation and collagen production, leaving your skin smoother, tighter, and visibly refreshed.</p> <img src="https://thf.bing.com/th/id/OIP.Yv0L0cUouuL9jjjkJyPqTgHaE7?w=278&h=185&c=7&r=0&o=5&cb=thfc1&pid=1.7" alt="Endermologie"> </article> 
-  <article class="card"> 
-    <h3>Lymphatic Drainage</h3> 
-    <p>An invigorating massage that stimulates the lymphatic system to flush out toxins, reduce water retention, and boost metabolism. It helps debloat, detox, and contour the body with immediate, visible results.</p> <img src="Lymphatic Drainage.jpg.png" alt="Lymphatic Drainage" style="width:278px; height:185px; object-fit:cover; border-radius:8px;"> </article> 
-    <article class="card"> 
-      <h3>Body Wrap</h3> <p>A detoxifying, hydrating treatment that smooths, firms, and rejuvenates the skin. Perfect for boosting circulation, reducing water retention, and leaving you glowing.</p> <img src="BodyWraps.jpg.png" alt="Body Wrap" style="width:278px; height:185px; object-fit:cover; border-radius:8px;"> </article> 
-    <article class="card"> 
-      <h3>Hydrafacial</h3> <p>A refreshing, non-invasive treatment that cleanses, exfoliates, and hydrates, leaving skin radiant and renewed.</p> <img src="hydrafacial.jpg.png" alt="Hydrafacial" style="width:278px; height:185px; object-fit:cover; border-radius:8px;"> </article> 
-    <article class="card"> 
-      <h3>Microdermabrasion</h3> <p>A gentle exfoliation that smooths, brightens, and refreshes your skin for a youthful glow.</p> <img src="microdermabrasion.jpg.png" alt="Microdermabrasion" style="width:278px; height:185px; object-fit:cover; border-radius:8px;"> </article> 
-    <article class="card"> 
-      <h3>Hot Stone Massage</h3> <p>Heated stones gently melt tension and soothe muscles for deep relaxation and renewed vitality.</p> <img src="Hotstone.jpg.png" alt="Hot Stone" style="width:278px; height:185px; object-fit:cover; border-radius:8px;"> </article> 
-    <article class="card swedish-card"> 
-      <h3>Swedish Massage</h3> <p>A calming, full-body massage that relieves tension, improves circulation, and restores inner balance.</p> </article> <article class="card"> <h3>Pre/Post Surgical Treatments</h3> <p>Gentle, targeted treatments to reduce swelling, boost circulation, and support recovery before or after surgery.</p> </article> 
-    <article class="card"> 
-      <h3>Ultracavitation and Radio Frequency</h3> 
-      <p>Non-invasive fat reduction and skin tightening to contour, smooth, and define your shape.</p>
-    </article>
+<!-- Services -->
+<section id="services" class="section">
+  <div class="container">
+    <header class="section-header">
+      <h2>Our Services</h2>
+      <p>Choose from our most popular treatments. All sessions include a brief consultation to tailor your experience.</p>
+    </header>
+    <div class="services-grid">
+      <article class="card">
+        <img src="https://thf.bing.com/th/id/OIP.Yv0L0cUouuL9jjjkJyPqTgHaE7?w=278&h=185&c=7&r=0&o=5&cb=thfc1&pid=1.7" alt="Endermologie">
+        <h3>Endermologie</h3>
+        <p>Non-invasive treatment that reduces cellulite, firms the skin, and reshapes your silhouette. Using advanced mechanical stimulation, it boosts circulation and collagen production, leaving your skin smoother, tighter, and visibly refreshed.</p>
+      </article>
+      
+      <article class="card">
+        <img src="Lymphatic Drainage.jpg.png" alt="Lymphatic Drainage">
+        <h3>Lymphatic Drainage</h3>
+        <p>An invigorating massage that stimulates the lymphatic system to flush out toxins, reduce water retention, and boost metabolism. It helps debloat, detox, and contour the body with immediate, visible results.</p>
+      </article>
+      
+      <article class="card">
+        <img src="BodyWraps.jpg.png" alt="Body Wrap">
+        <h3>Body Wrap</h3>
+        <p>A detoxifying, hydrating treatment that smooths, firms, and rejuvenates the skin. Perfect for boosting circulation, reducing water retention, and leaving you glowing.</p>
+      </article>
+      
+      <article class="card">
+        <img src="hydrafacial.jpg.png" alt="Hydrafacial">
+        <h3>Hydrafacial</h3>
+        <p>A refreshing, non-invasive treatment that cleanses, exfoliates, and hydrates, leaving skin radiant and renewed.</p>
+      </article>
+      
+      <article class="card">
+        <img src="microdermabrasion.jpg.png" alt="Microdermabrasion">
+        <h3>Microdermabrasion</h3>
+        <p>A gentle exfoliation that smooths, brightens, and refreshes your skin for a youthful glow.</p>
+      </article>
+      
+      <article class="card">
+        <img src="Hotstone.jpg.png" alt="Hot Stone Massage">
+        <h3>Hot Stone Massage</h3>
+        <p>Heated stones gently melt tension and soothe muscles for deep relaxation and renewed vitality.</p>
+      </article>
+      
+      <article class="card">
+        <img src="swedishmassage.png" alt="Swedish Massage">
+        <h3>Swedish Massage</h3>
+        <p>A calming, full-body massage that relieves tension, improves circulation, and restores inner balance.</p>
+      </article>
+      
+      <article class="card">
+        <img src="PrePost Surgical Treatments.png" alt="Pre/Post Surgical Treatments">
+        <h3>Pre/Post Surgical Treatments</h3>
+        <p>Gentle, targeted treatments to reduce swelling, boost circulation, and support recovery before or after surgery.</p>
+      </article>
+      
+      <article class="card">
+        <img src="Ultracavitation and Radio Frequency.png" alt="Ultracavitation and Radio Frequency">
+        <h3>Ultracavitation and Radio Frequency</h3>
+        <p>Non-invasive fat reduction and skin tightening to contour, smooth, and define your shape.</p>
+      </article>
     <article class="card">
+      <div class="treatment-gallery">
+        <img src="WhatsApp Image 2025-08-27 at 13.39.44_c7708dc3.jpg" alt="Cryolipolysis Treatment">
+      </div>
       <h3>Cryolipolysis (Fat-Freezing)</h3>
       <p>Our Cryolipolysis (fat-freezing) treatments are a safe, non-invasive way to target and reduce stubborn fat deposits. Using advanced cooling technology, fat cells are gently frozen and naturally eliminated by the body over time.</p>
       <div class="treatment-gallery" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px;">
-        <img src="WhatsApp Image 2025-08-27 at 13.39.44_c7708dc3.jpg" alt="Cryolipolysis Treatment 1" style="width: 100%; border-radius: 8px;">
-        <img src="WhatsApp Image 2025-08-27 at 13.39.44_8237d7f3.jpg" alt="Cryolipolysis Treatment 2" style="width: 100%; border-radius: 8px;">
-        <img src="WhatsApp Image 2025-08-27 at 13.39.44_e57a24eb.jpg" alt="Cryolipolysis Treatment 3" style="width: 100%; border-radius: 8px;">
-        <img src="WhatsApp Image 2025-08-27 at 13.39.44_eacd68b0.jpg" alt="Cryolipolysis Treatment 4" style="width: 100%; border-radius: 8px;">
+        <img src="WhatsApp Image 2025-08-27 at 13.39.44_c7708dc3.jpg" alt="Cryolipolysis Treatment 1">
+        <img src="WhatsApp Image 2025-08-27 at 13.39.44_8237d7f3.jpg" alt="Cryolipolysis Treatment 2">
+        <img src="WhatsApp Image 2025-08-27 at 13.39.44_e57a24eb.jpg" alt="Cryolipolysis Treatment 3">
+        <img src="WhatsApp Image 2025-08-27 at 13.39.44_eacd68b0.jpg" alt="Cryolipolysis Treatment 4">
       </div>
     </article>
   </div>
