@@ -640,7 +640,11 @@
 <body>
 
 <!-- Skip to Content -->
-<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-content" class="skip-link" style="position: absolute; top: 10px; left: 10px; background: var(--primary); color: white; padding: 8px 16px; border-radius: 4px; z-index: 1001; transform: translateY(-100%); transition: transform 0.3s ease-in-out;"
+   onfocus="this.style.transform='translateY(0)'"
+   onblur="this.style.transform='translateY(-100)'">
+  Skip to main content
+</a>
 
 <!-- Header -->
 <header class="site-header">
@@ -690,7 +694,16 @@
       <div class="contact-info">
         <div class="location">
           <span class="location-icon">📍</span>
-          <a href="https://maps.google.com/?q=Coral+Springs,+FL" target="_blank" rel="noopener">Coral Springs, FL</a>
+          <div class="contact-info" style="display: flex; flex-direction: column; gap: 8px; margin-left: 2rem;">
+            <a href="https://maps.app.goo.gl/example" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px;">
+              <i class="fas fa-map-marker-alt" style="font-size: 1.2rem; color: var(--primary);"></i>
+              <span>1234 Beauty St, Coral Springs, FL</span>
+            </a>
+            <a href="tel:+15551234567" style="display: flex; align-items: center; gap: 8px;">
+              <i class="fas fa-phone" style="font-size: 1.2rem; color: var(--primary);"></i>
+              <span>(555) 123-4567</span>
+            </a>
+          </div>
         </div>
         <div class="phone">
           <span class="phone-icon">📞</span>
@@ -734,25 +747,6 @@
           </div>
         </div>
       </div>
-      <div class="hero-image">
-        <div class="image-wrapper">
-          <img src="images/olga.jpg" alt="Olga Delgado - Aesthetic Specialist" class="main-image">
-          <div class="experience-badge">
-            <span class="years">25+</span>
-            <span class="text">Years Experience</span>
-          </div>
-          <div class="review-badge">
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <span>500+ Happy Clients</span>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   
@@ -782,7 +776,22 @@
     <article class="card swedish-card"> 
       <h3>Swedish Massage</h3> <p>A calming, full-body massage that relieves tension, improves circulation, and restores inner balance.</p> </article> <article class="card"> <h3>Pre/Post Surgical Treatments</h3> <p>Gentle, targeted treatments to reduce swelling, boost circulation, and support recovery before or after surgery.</p> </article> 
     <article class="card"> 
-    <h3>Ultracavitation and Radio Frequency</h3> <p>Non-invasive fat reduction and skin tightening to contour, smooth, and define your shape.</p> </article> </div> </div> </section>
+      <h3>Ultracavitation and Radio Frequency</h3> 
+      <p>Non-invasive fat reduction and skin tightening to contour, smooth, and define your shape.</p>
+    </article>
+    <article class="card">
+      <h3>Cryolipolysis (Fat-Freezing)</h3>
+      <p>Our Cryolipolysis (fat-freezing) treatments are a safe, non-invasive way to target and reduce stubborn fat deposits. Using advanced cooling technology, fat cells are gently frozen and naturally eliminated by the body over time.</p>
+      <div class="treatment-gallery" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px;">
+        <img src="WhatsApp Image 2025-08-27 at 13.39.44_c7708dc3.jpg" alt="Cryolipolysis Treatment 1" style="width: 100%; border-radius: 8px;">
+        <img src="WhatsApp Image 2025-08-27 at 13.39.44_8237d7f3.jpg" alt="Cryolipolysis Treatment 2" style="width: 100%; border-radius: 8px;">
+        <img src="WhatsApp Image 2025-08-27 at 13.39.44_e57a24eb.jpg" alt="Cryolipolysis Treatment 3" style="width: 100%; border-radius: 8px;">
+        <img src="WhatsApp Image 2025-08-27 at 13.39.44_eacd68b0.jpg" alt="Cryolipolysis Treatment 4" style="width: 100%; border-radius: 8px;">
+      </div>
+    </article>
+  </div>
+</div>
+</section>
 
 <!-- Therapist -->
 <section id="therapist" class="section section-alt">
@@ -790,12 +799,14 @@
     <header class="section-header">
       <h2>Meet Our Esthetician</h2>
     </header>
-    <div class="profile-container">
-      <div class="profile-card">
-        <img src="olgamachines.jpg.png" alt="Olga Delgado" class="profile-image">
-        <h3>Olga Delgado</h3>
-        <p style="color:#9ca3af; margin-bottom:1.5rem;">Licensed Esthetician</p>
-        <p>With over 25 years of experience in skincare and beauty, I bring both expertise and a deep passion for helping clients achieve their aesthetic goals through personalized care and cutting-edge treatments.</p>
+    <div class="profile-container" style="display: flex; justify-content: center; align-items: center; min-height: 400px;">
+      <div class="profile-card" style="display: flex; flex-direction: column; align-items: center; max-width: 800px; width: 100%;">
+        <img src="olgamachines.jpg.png" alt="Olga Delgado" class="profile-image" style="width: 300px; height: 300px; object-fit: cover; border-radius: 50%; margin-bottom: 2rem; border: 5px solid var(--primary);">
+        <div style="text-align: center;">
+          <h3 style="margin-bottom: 0.5rem;">Olga Delgado</h3>
+          <p style="color:#9ca3af; margin-bottom:1.5rem;">Licensed Esthetician</p>
+          <p>With over 25 years of experience in skincare and beauty, I bring both expertise and a deep passion for helping clients achieve their aesthetic goals through personalized care and cutting-edge treatments.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -829,7 +840,32 @@
   <div class="container">
     <header class="section-header">
       <h2>About Us</h2>
+      <p class="tagline" style="font-size: 2rem; color: var(--primary); font-weight: 600; margin-bottom: 2rem;">
+        Refresh! Refine! Radiate!
+      </p>
     </header>
+    <div class="about-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+        At Olga Delgado Aesthetics, we believe in the power of professional skincare and body treatments to enhance your natural beauty and wellbeing. With over 25 years of experience in the industry, we bring expertise, passion, and personalized care to every treatment.
+      </p>
+      <div class="about-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 3rem 0;">
+        <div class="feature">
+          <i class="fas fa-star" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+          <h4>Expert Care</h4>
+          <p>Licensed professionals with extensive training and experience</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-spa" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+          <h4>Premium Treatments</h4>
+          <p>State-of-the-art technology and premium products</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-heart" style="font-size: 2rem; color: var(--primary); margin-bottom: 1rem;"></i>
+          <h4>Personalized Approach</h4>
+          <p>Customized treatments for your unique needs</p>
+        </div>
+      </div>
+    </div>
     <div class="about-us">
       <h3>Mission</h3>
       <p>My goal is to help clients feel confident, comfortable, and beautiful in their own skin through personalized aesthetic treatments and exceptional care.</p>
