@@ -36,12 +36,14 @@
   
   <!-- Modern CSS Reset -->
   <style>
-    /* Smooth Scrolling */
-    html {
-      scroll-behavior: smooth;
+    /* Box sizing rules */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     
-    /* Smooth scroll for anchor links */
+    /* Smooth Scrolling */
     @media (prefers-reduced-motion: no-preference) {
       html {
         scroll-behavior: smooth;
@@ -152,11 +154,6 @@
     .animate-words .word:nth-child(3) { animation-delay: 1.3s; }
 
     /* Modern CSS Reset */
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
     :root {
       /* Color Palette */
@@ -253,150 +250,88 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 14px 32px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      border: none;
-      border-radius: 50px;
-      font-size: 1rem;
+      padding: 0.6rem 1.5rem;
+      border-radius: 6px;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      text-align: center;
+      text-decoration: none;
       cursor: pointer;
       transition: all 0.3s ease;
-      text-decoration: none;
-      text-align: center;
-      min-width: 200px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-    
-    .btn:hover, .btn:focus {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      outline: none;
-    }
-    
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 100%;
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      transition: width 0.3s ease;
-      z-index: -1;
-    }
-    
-    .btn:hover::before {
-      width: 100%;
-    }
-    
-    .btn:focus-visible {
-      outline: 3px solid var(--secondary);
-      outline-offset: 2px;
-    }
-    
-    .section {
-      padding: var(--section-padding);
-      position: relative;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(5px);
-      margin: 2rem 0;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-    }
-    
-    .section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 12px;
-      padding: 1px;
-      background: linear-gradient(135deg, rgba(123, 31, 162, 0.1), rgba(255, 255, 255, 0.1));
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask-composite: exclude;
-      pointer-events: none;
-    }
-    
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    
-    .section-title h2 {
-      position: relative;
-      display: inline-block;
-      padding-bottom: 1rem;
-    }
-    
-    .section-title h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background: var(--primary);
+      border: 2px solid transparent;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      letter-spacing: 0.3px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
     
     .text-center { text-align: center; }
     .text-primary { color: var(--primary); }
     .bg-light { background-color: var(--light); }
-    .bg-dark { 
-      background-color: var(--dark);
-      color: var(--white);
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      border-color: var(--primary-dark);
     }
 
     /* Header Styles */
     .header {
       background: white;
-      padding: 1rem 0;
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      padding: 0.8rem 0;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
       transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .header .container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1.5rem;
+      width: 100%;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      padding: 0.5rem 0;
     }
 
     .brand h1 {
       margin: 0;
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       color: var(--primary);
       font-weight: 700;
       line-height: 1.2;
+      letter-spacing: -0.5px;
     }
 
     .tagline {
-      margin: 0.25rem 0 0;
+      margin: 0.15rem 0 0;
       color: var(--gray);
-      font-size: 0.9rem;
+      font-size: 0.75rem;
       font-weight: 500;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.9;
     }
 
     .main-nav ul {
       display: flex;
-      gap: 2rem;
+      gap: 2.5rem;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -407,10 +342,11 @@
       color: var(--dark);
       text-decoration: none;
       font-weight: 500;
-      font-size: 1rem;
-      transition: color 0.3s ease;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
       position: relative;
-      padding: 0.5rem 0;
+      padding: 0.5rem 0.25rem;
+      letter-spacing: 0.3px;
     }
 
     .main-nav a:hover,
@@ -438,36 +374,47 @@
     .nav-toggle {
       display: none;
       background: none;
-      border: none;
+      border: 2px solid transparent;
+      border-radius: 4px;
       font-size: 1.5rem;
       color: var(--dark);
       cursor: pointer;
-      padding: 0.5rem;
+      padding: 0.4rem 0.7rem;
       z-index: 1001;
+      transition: all 0.2s ease;
+    }
+
+    .nav-toggle:hover {
+      background: rgba(0, 0, 0, 0.03);
+      border-color: rgba(0, 0, 0, 0.05);
     }
 
     /* Responsive Navigation */
     @media (max-width: 992px) {
       .header .container {
-        padding: 0 1.5rem;
+        padding: 0 1.25rem;
       }
       
       .nav-toggle {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
       }
       
       .main-nav {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 80%;
-        max-width: 320px;
+        width: 85%;
+        max-width: 300px;
         height: 100vh;
         background: white;
-        padding: 5rem 2rem 2rem;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-        transition: right 0.3s ease;
-        z-index: 1000;
+        padding: 5.5rem 1.5rem 2rem;
+        box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
         overflow-y: auto;
       }
       
@@ -477,13 +424,29 @@
       
       .main-nav ul {
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.5rem;
+        padding: 0.5rem 0;
       }
       
       .main-nav a {
         display: block;
-        padding: 0.75rem 0;
-        font-size: 1.1rem;
+        padding: 0.85rem 1rem;
+        font-size: 1rem;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+      }
+      
+      .main-nav a:hover,
+      .main-nav a:focus {
+        background: rgba(0, 0, 0, 0.02);
+        padding-left: 1.25rem;
+      }
+      
+      .main-nav .btn-primary {
+        margin-top: 1rem;
+        justify-content: center;
+        width: 100%;
+        padding: 0.85rem 1rem;
       }
       
       .overlay {
@@ -788,6 +751,9 @@
         padding: 10px;
         cursor: pointer;
         z-index: 1000;
+        position: absolute;
+        top: 20px;
+        right: 20px;
       }
       
       .hamburger {
@@ -831,42 +797,6 @@
       
       .main-nav {
         display: none;
-      }
-      
-      .main-nav.active {
-        display: block;
-      }
-      
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
-      }
-
-      .hero-copy h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero-copy h1:nth-of-type(2) {
-        font-size: 1.5rem;
-      }
-
-      .hero-cta {
-        justify-content: center;
-      }
-
-      .hero-badges {
-        justify-content: center;
-      }
-
-      .nav-toggle {
-        display: flex;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-      }
-      
-      .main-nav {
         position: fixed;
         top: 0;
         right: -100%;
@@ -881,6 +811,7 @@
       }
       
       .main-nav.active {
+        display: block;
         right: 0;
       }
       
@@ -896,741 +827,105 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0,0,0,0.5);
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
         z-index: 998;
+        opacity: 0;
+        transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: opacity;
       }
       
       .overlay.active {
         display: block;
+        opacity: 1;
       }
-
-      .footer-inner {
-        flex-direction: column;
-        text-align: center;
+      
+      /* Prevent scrolling when mobile menu is open */
+      body.menu-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
       }
-    }
-
-    @media (max-width: 480px) {
-      .brand-text h1 {
-        font-size: 20px;
-        letter-spacing: 1px;
-      }
-
-      .hero-copy h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-<!-- Skip to Content -->
-<a href="#main-content" class="skip-link" style="position: absolute; top: 10px; left: 10px; background: var(--primary); color: white; padding: 8px 16px; border-radius: 4px; z-index: 1001; transform: translateY(-100%); transition: transform 0.3s ease-in-out;"
-   onfocus="this.style.transform='translateY(0)'"
-   onblur="this.style.transform='translateY(-100)'">
-  Skip to main content
-</a>
-
-<!-- Header -->
-<header class="header">
-    <div class="container">
-      <div class="brand">
-        <h1>Olga Delgado Aesthetics</h1>
-        <p class="tagline">Refresh! Refine! Radiate!</p>
-      </div>
-      
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-      
-      <div class="overlay"></div>
-      
-      <nav class="main-nav">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#therapist">About</a></li>
-          <li>
-            <div class="contact-info" style="display: flex; flex-direction: column; gap: 1.5rem;">
-              <a href="https://maps.google.com?q=1234+Aesthetic+Lane+Coral+Springs+FL+33076" target="_blank" rel="noopener noreferrer" class="contact-item" style="display: flex; align-items: flex-start; gap: 1rem; color: var(--dark); text-decoration: none; transition: all 0.3s ease; padding: 1rem; border-radius: 8px; background: rgba(255, 255, 255, 0.05);">
-                <div style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <i class="fas fa-map-marker-alt" style="font-size: 1.1rem;"></i>
-                </div>
-                <div>
-                  <h4 style="margin: 0 0 0.25rem 0; color: var(--primary);">Our Location</h4>
-                  <p style="margin: 0; color: var(--gray);">1234 Aesthetic Lane<br>Coral Springs, FL 33076</p>
-                </div>
-                <i class="fas fa-arrow-right" style="margin-left: auto; align-self: center; color: var(--primary); opacity: 0; transition: all 0.3s ease;"></i>
-              </a>
-              
-              <a href="tel:19541234567" class="contact-item" style="display: flex; align-items: flex-start; gap: 1rem; color: var(--dark); text-decoration: none; transition: all 0.3s ease; padding: 1rem; border-radius: 8px; background: rgba(255, 255, 255, 0.05);">
-                <div style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <i class="fas fa-phone-alt" style="font-size: 1.1rem;"></i>
-                </div>
-                <div>
-                  <h4 style="margin: 0 0 0.25rem 0; color: var(--primary);">Call Us</h4>
-                  <p style="margin: 0; color: var(--gray);">(954) 123-4567</p>
-                </div>
-                <i class="fas fa-arrow-right" style="margin-left: auto; align-self: center; color: var(--primary); opacity: 0; transition: all 0.3s ease;"></i>
-              </a>
-              
-              <a href="mailto:contact@olgadelgadoaesthetics.com" class="contact-item" style="display: flex; align-items: flex-start; gap: 1rem; color: var(--dark); text-decoration: none; transition: all 0.3s ease; padding: 1rem; border-radius: 8px; background: rgba(255, 255, 255, 0.05);">
-                <div style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  <i class="fas fa-envelope" style="font-size: 1.1rem;"></i>
-                </div>
-                <div>
-                  <h4 style="margin: 0 0 0.25rem 0; color: var(--primary);">Email Us</h4>
-                  <p style="margin: 0; color: var(--gray);">contact@olgadelgadoaesthetics.com</p>
-                </div>
-                <i class="fas fa-arrow-right" style="margin-left: auto; align-self: center; color: var(--primary); opacity: 0; transition: all 0.3s ease;"></i>
-              </a>
-              
-              <style>
-                .contact-item:hover {
-                  transform: translateX(5px);
-                  background: rgba(255, 255, 255, 0.1) !important;
-                }
-                .contact-item:hover .fa-arrow-right {
-                  opacity: 1 !important;
-                }
-              </style>
-            </div>
-          </li>
-          <li><a href="#booking" class="btn btn-primary">Book Now</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-<!-- Hero Section -->
-<section class="hero" id="home" style="background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95)), url('olga2.jpg') no-repeat center center/cover; padding: 10rem 0; position: relative; overflow: hidden;">
-  <div class="container">
-    <div class="hero-grid" style="max-width: 800px; margin: 0 auto; text-align: center; position: relative; z-index: 2;">
-      <div class="hero-content">
-        <h1 style="font-size: 3.5rem; margin-bottom: 1.5rem; line-height: 1.2;">
-          <span style="color: var(--primary); display: block; margin-bottom: 0.5rem; font-size: 1.2em;">Transform Your Beauty</span>
-          <span style="color: var(--dark);">Journey with Confidence</span>
-        </h1>
-        <p class="lead" style="font-size: 1.25rem; color: var(--gray); margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-          Experience the perfect blend of advanced aesthetics and personalized care. Our expert treatments are designed to enhance your natural beauty and help you feel your absolute best.
-        </p>
-        <div class="social-links" style="display: flex; justify-content: center; gap: 1.5rem; margin: 2rem 0 0;">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #3b5998, #8b9dc3); color: white; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); color: white; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://wa.me/19541234567" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #25d366, #128c7e); color: white; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
-            <i class="fab fa-whatsapp"></i>
-          </a>
-          <style>
-            .social-links a:hover {
-              transform: translateY(-3px) scale(1.1);
-              box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-            }
-            .social-links a:active {
-              transform: translateY(0) scale(0.98);
-            }
-          </style>
-        </div>
-        <div class="hero-cta">
-          <a href="#booking" class="btn btn-primary" onclick="smoothScroll('#booking')">
-            <i class="far fa-calendar-alt"></i>
-            Book Your Session
-          </a>
-          <a href="#services" class="btn btn-outline" style="background: transparent; border: 2px solid var(--primary); color: var(--primary); padding: 1rem 2.5rem; font-size: 1.1rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem;">
-            <i class="fas fa-spa"></i> Our Services
-          </a>
-        </div>
-        <div class="hero-features" style="display: flex; justify-content: center; gap: 25px; margin-top: 2.5rem; flex-wrap: wrap;">
-          <ul class="feature-list" style="text-align: left; margin: 2.5rem auto; padding: 0; list-style: none; max-width: 600px;">
-          <li style="margin: 0 0 1rem 0; padding: 1.25rem 1.5rem 1.25rem 3.5rem; position: relative; background: rgba(255, 255, 255, 0.9); border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); transition: all 0.3s ease; border-left: 4px solid var(--primary);">
-            <i class="fas fa-check-circle" style="color: var(--primary); position: absolute; left: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 1.2rem;"></i>
-            <div>
-              <strong style="display: block; color: var(--dark); font-size: 1.1rem; margin-bottom: 0.25rem;">Certified Specialists</strong>
-              <span style="color: var(--gray); font-size: 0.95rem;">Licensed professionals with extensive training and experience in advanced aesthetic treatments</span>
-            </div>
-          </li>
-          <li style="margin: 0 0 1rem 0; padding: 1.25rem 1.5rem 1.25rem 3.5rem; position: relative; background: rgba(255, 255, 255, 0.9); border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); transition: all 0.3s ease; border-left: 4px solid var(--primary);">
-            <i class="fas fa-check-circle" style="color: var(--primary); position: absolute; left: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 1.2rem;"></i>
-            <div>
-              <strong style="display: block; color: var(--dark); font-size: 1.1rem; margin-bottom: 0.25rem;">Premium Products</strong>
-              <span style="color: var(--gray); font-size: 0.95rem;">State-of-the-art equipment and premium products for optimal results</span>
-            </div>
-          </li>
-          <li style="margin: 0; padding: 1.25rem 1.5rem 1.25rem 3.5rem; position: relative; background: rgba(255, 255, 255, 0.9); border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); transition: all 0.3s ease; border-left: 4px solid var(--primary);">
-            <i class="fas fa-check-circle" style="color: var(--primary); position: absolute; left: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 1.2rem;"></i>
-            <div>
-              <strong style="display: block; color: var(--dark); font-size: 1.1rem; margin-bottom: 0.25rem;">Personalized Care</strong>
-              <span style="color: var(--gray); font-size: 0.95rem;">Customized treatment plans tailored to your unique needs and goals</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Hero Wave -->
-{{ ... }}
-  <div class="hero-wave">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
-      <path fill="#FFFFFF" fill-opacity="1" d="M0,64L48,69.3C96,75,192,85,288,90.7C384,96,480,96,576,85.3C672,75,768,53,864,48C960,43,1056,53,1152,69.3C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-    </svg>
-  </div>
-</section>
-
-<!-- Services -->
-<section id="services" class="section">
-  <div class="container">
-    <header class="section-header">
-      <h2>Our Services</h2>
-      <p>Choose from our most popular treatments. All sessions include a brief consultation to tailor your experience.</p>
-    </header>
-    <div class="services-grid">
-      <article class="card">
-        <img src="https://thf.bing.com/th/id/OIP.Yv0L0cUouuL9jjjkJyPqTgHaE7?w=278&h=185&c=7&r=0&o=5&cb=thfc1&pid=1.7" alt="Endermologie">
-        <h3>Endermologie</h3>
-        <p>Non-invasive treatment that reduces cellulite, firms the skin, and reshapes your silhouette. Using advanced mechanical stimulation, it boosts circulation and collagen production, leaving your skin smoother, tighter, and visibly refreshed.</p>
-      </article>
-      
-      <article class="card">
-        <img src="Lymphatic Drainage.jpg.png" alt="Lymphatic Drainage">
-        <h3>Lymphatic Drainage</h3>
-        <p>An invigorating massage that stimulates the lymphatic system to flush out toxins, reduce water retention, and boost metabolism. It helps debloat, detox, and contour the body with immediate, visible results.</p>
-      </article>
-      
-      <article class="card">
-        <img src="BodyWraps.jpg.png" alt="Body Wrap">
-        <h3>Body Wrap</h3>
-        <p>A detoxifying, hydrating treatment that smooths, firms, and rejuvenates the skin. Perfect for boosting circulation, reducing water retention, and leaving you glowing.</p>
-      </article>
-      
-      <article class="card">
-        <img src="hydrafacial.jpg.png" alt="Hydrafacial">
-        <h3>Hydrafacial</h3>
-        <p>A refreshing, non-invasive treatment that cleanses, exfoliates, and hydrates, leaving skin radiant and renewed.</p>
-      </article>
-      
-      <article class="card">
-        <img src="microdermabrasion.jpg.png" alt="Microdermabrasion">
-        <h3>Microdermabrasion</h3>
-        <p>A gentle exfoliation that smooths, brightens, and refreshes your skin for a youthful glow.</p>
-      </article>
-      
-      <article class="card">
-        <img src="Hotstone.jpg.png" alt="Hot Stone Massage">
-        <h3>Hot Stone Massage</h3>
-        <p>Heated stones gently melt tension and soothe muscles for deep relaxation and renewed vitality.</p>
-      </article>
-      
-      <article class="card">
-        <img src="swedishmassage.png" alt="Swedish Massage">
-        <h3>Swedish Massage</h3>
-        <p>A calming, full-body massage that relieves tension, improves circulation, and restores inner balance.</p>
-      </article>
-      
-      <article class="card">
-        <img src="PrePost Surgical Treatments.png" alt="Pre/Post Surgical Treatments">
-        <h3>Pre/Post Surgical Treatments</h3>
-        <p>Gentle, targeted treatments to reduce swelling, boost circulation, and support recovery before or after surgery.</p>
-      </article>
-      
-      <article class="card">
-        <img src="Ultracavitation and Radio Frequency.png" alt="Ultracavitation and Radio Frequency">
-        <h3>Ultracavitation and Radio Frequency</h3>
-        <p>Non-invasive fat reduction and skin tightening to contour, smooth, and define your shape.</p>
-      </article>
-    <article class="card">
-      <div class="treatment-gallery">
-        <img src="WhatsApp Image 2025-08-27 at 13.39.44_c7708dc3.jpg" alt="Cryolipolysis Treatment">
-      </div>
-      <h3>Cryolipolysis (Fat-Freezing)</h3>
-      <p>Our Cryolipolysis (fat-freezing) treatments are a safe, non-invasive way to target and reduce stubborn fat deposits. Using advanced cooling technology, fat cells are gently frozen and naturally eliminated by the body over time.</p>
-      <div class="treatment-gallery" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px;">
-        <img src="WhatsApp Image 2025-08-27 at 13.39.44_c7708dc3.jpg" alt="Cryolipolysis Treatment 1">
-        <img src="WhatsApp Image 2025-08-27 at 13.39.44_8237d7f3.jpg" alt="Cryolipolysis Treatment 2">
-        <img src="WhatsApp Image 2025-08-27 at 13.39.44_e57a24eb.jpg" alt="Cryolipolysis Treatment 3">
-        <img src="WhatsApp Image 2025-08-27 at 13.39.44_eacd68b0.jpg" alt="Cryolipolysis Treatment 4">
-      </div>
-    </article>
-  </div>
-</div>
-</section>
-
-<!-- Therapist -->
-<section id="therapist" class="section section-alt">
-  <div class="container">
-    <header class="section-header">
-      <h2>Meet Our Esthetician</h2>
-    </header>
-    <div class="profile-container" style="display: flex; justify-content: center; align-items: center; min-height: 400px;">
-      <div class="profile-card" style="display: flex; flex-direction: column; align-items: center; max-width: 800px; width: 100%;">
-        <img src="olgamachines.jpg.png" alt="Olga Delgado" class="profile-image" style="width: 300px; height: 300px; object-fit: cover; border-radius: 50%; margin-bottom: 2rem; border: 5px solid var(--primary);">
-        <div style="text-align: center;">
-          <h3 style="margin-bottom: 0.5rem;">Olga Delgado</h3>
-          <p style="color:#9ca3af; margin-bottom:1.5rem;">Licensed Esthetician</p>
-          <p>With over 25 years of experience in skincare and beauty, I bring both expertise and a deep passion for helping clients achieve their aesthetic goals through personalized care and cutting-edge treatments.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Testimonials -->
-<section id="testimonials" class="section" style="background-color: #f9f9f9;">
-  <div class="container">
-    <header class="section-header">
-      <h2>What Our Clients Say</h2>
-      <p style="max-width: 700px; margin: 0 auto; color: #666;">Don't just take our word for it - here's what our valued clients have to say about their experiences at Olga Delgado Aesthetics.</p>
-    </header>
-    <div class="grid quotes" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
-      <blockquote class="quote" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); position: relative; margin: 0;">
-        <div style="color: #ffd700; margin-bottom: 1rem;">
-          ★★★★★
-        </div>
-        <p style="font-style: italic; margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.7; color: #333;">
-          "Best massage I've had in years. I left feeling brand new and completely rejuvenated. Olga's attention to detail is unmatched!"
-        </p>
-        <cite style="display: flex; align-items: center; font-style: normal; font-weight: 600; color: var(--primary);">
-          <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Daniela M." style="width: 40px; height: 40px; border-radius: 50%; margin-right: 12px; border: 2px solid var(--primary);">
-          <span>Daniela M.</span>
-        </cite>
-      </blockquote>
-
-      <blockquote class="quote" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); position: relative; margin: 0;">
-        <div style="color: #ffd700; margin-bottom: 1rem;">
-          ★★★★★
-        </div>
-        <p style="font-style: italic; margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.7; color: #333;">
-          "Beautiful space, kind staff, and truly skilled therapists. I've been coming here for months and every visit is better than the last."
-        </p>
-        <cite style="display: flex; align-items: center; font-style: normal; font-weight: 600; color: var(--primary);">
-          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Jorge T." style="width: 40px; height: 40px; border-radius: 50%; margin-right: 12px; border: 2px solid var(--primary);">
-          <span>Jorge T.</span>
-        </cite>
-      </blockquote>
-
-      <blockquote class="quote" style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); position: relative; margin: 0;">
-        <div style="color: #ffd700; margin-bottom: 1rem;">
-          ★★★★★
-        </div>
-        <p style="font-style: italic; margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.7; color: #333;">
-          "Perfect pressure and attentive care. Highly recommend the deep tissue massage - it worked wonders for my back pain after just one session!"
-        </p>
-        <cite style="display: flex; align-items: center; font-style: normal; font-weight: 600; color: var(--primary);">
-          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Alicia R." style="width: 40px; height: 40px; border-radius: 50%; margin-right: 12px; border: 2px solid var(--primary);">
-          <span>Alicia R.</span>
-        </cite>
-      </blockquote>
-    </div>
-  </div>
-</section>
-
-<!-- About us -->
-<section id="about-us" class="section section-alt">
-  <div class="container">
-    <header class="section-header">
-      <h2>About Us</h2>
-    </header>
-    <div class="about-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
-      <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
-        At Olga Delgado Aesthetics, we believe in the power of professional skincare and body treatments to enhance your natural beauty and wellbeing. With over 25 years of experience in the industry, we bring expertise, passion, and personalized care to every treatment.
-      </p>
-      <div class="about-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin: 3rem 0;">
-        <div class="feature" style="background: rgba(139, 95, 191, 0.05); padding: 2rem; border-radius: 12px; transition: all 0.3s ease; cursor: default; border: 1px solid rgba(139, 95, 191, 0.1);" 
-             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)';"
-             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-          <i class="fas fa-award" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; display: block;"></i>
-          <h4 style="color: var(--primary); margin-bottom: 1rem;">Expert Care</h4>
-          <p style="color: var(--dark); line-height: 1.7;">Licensed professionals with extensive training and experience in advanced aesthetic treatments</p>
-        </div>
-        <div class="feature" style="background: rgba(255, 138, 139, 0.05); padding: 2rem; border-radius: 12px; transition: all 0.3s ease; cursor: default; border: 1px solid rgba(255, 138, 139, 0.1);"
-             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)';"
-             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-          <i class="fas fa-microscope" style="font-size: 2.5rem; color: #FF8A8B; margin-bottom: 1.5rem; display: block;"></i>
-          <h4 style="color: #FF8A8B; margin-bottom: 1rem;">Premium Technology</h4>
-          <p style="color: var(--dark); line-height: 1.7;">State-of-the-art equipment and premium products for optimal results</p>
-        </div>
-        <div class="feature" style="background: rgba(255, 209, 102, 0.05); padding: 2rem; border-radius: 12px; transition: all 0.3s ease; cursor: default; border: 1px solid rgba(255, 209, 102, 0.1);"
-             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)';"
-             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-          <i class="fas fa-user-shield" style="font-size: 2.5rem; color: #FFD166; margin-bottom: 1.5rem; display: block;"></i>
-          <h4 style="color: #FFD166; margin-bottom: 1rem;">Personalized Care</h4>
-          <p style="color: var(--dark); line-height: 1.7;">Customized treatment plans tailored to your unique needs and goals</p>
-        </div>
-      </div>
-    </div>
-    <div class="about-us">
-      <h3>Mission</h3>
-      <p>My goal is to help clients feel confident, comfortable, and beautiful in their own skin through personalized aesthetic treatments and exceptional care.</p>
-
-      <h3>Vision</h3>
-      <p>Helping clients achieve their ideal figure and wellness goals through innovative treatments and a commitment to excellence in every service we provide.</p>
-
-      <h3>Values</h3>
-      <ul>
-        <li>Empowerment through beauty and wellness</li>
-        <li>Compassionate and personalized care</li>
-        <li>Innovation in aesthetic treatments</li>
-        <li>Passion for wellness and rejuvenation</li>
-        <li>Exceptional service and professionalism</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-
-<!-- Booking Section -->
-<section id="booking" class="section section-emphasis" style="scroll-margin-top: 100px;">
-  <div class="container">
-    <header class="section-header">
-      <h2>Book Your Session</h2>
-      <p>Complete the form and we'll confirm your appointment via email.</p>
-    </header>
-    <form id="booking-form" class="form" novalidate>
-      <div class="grid form-grid">
-        <label for="name" class="form-field">
-          <span>Name*</span>
-          <input id="name" type="text" name="name" required placeholder="Your full name" aria-required="true" />
-          <small class="error" aria-live="polite"></small>
-        </label>
-        
-        <label for="email" class="form-field">
-          <span>Email*</span>
-          <input id="email" type="email" name="email" required placeholder="you@example.com" aria-required="true" />
-          <small class="error" aria-live="polite"></small>
-        </label>
-        
-        <label for="phone" class="form-field">
-          <span>Phone</span>
-          <input id="phone" type="tel" name="phone" placeholder="+1 (555) 555-1234" aria-label="Phone number (optional)" />
-          <small class="error" aria-live="polite"></small>
-        </label>
-        
-        <label for="service" class="form-field">
-          <span>Service*</span>
-          <select id="service" name="service" required aria-required="true">
-            <option value="">Select a service</option>
-            <option value="endermologie">Endermologie</option>
-            <option value="lymphatic-drainage">Lymphatic Drainage</option>
-            <option value="body-wraps">Body Wraps</option>
-            <option value="hot-stone-massage">Hot Stone Massage</option>
-            <option value="prenatal-massage">Prenatal Massage</option>
-            <option value="deep-tissue-massage">Deep Tissue Massage</option>
-            <option value="swedish-massage">Swedish Massage</option>
-            <option value="couples-massage">Couples Massage</option>
-          </select>
-          <small class="error" aria-live="polite"></small>
-        </label>
-        
-        <label for="duration" class="form-field">
-          <span>Duration*</span>
-          <select id="duration" name="duration" required aria-required="true">
-            <option value="">Choose duration</option>
-            <option value="60">60 minutes</option>
-            <option value="75">75 minutes</option>
-            <option value="90">90 minutes</option>
-          </select>
-          <small class="error" aria-live="polite"></small>
-        </label>
-        
-        <label for="date" class="form-field">
-          <span>Preferred Date*</span>
-          <input id="date" type="date" name="date" required aria-required="true" min="" />
-          <small class="error" aria-live="polite"></small>
-        </label>
-        
-        <label for="time" class="form-field">
-          <span>Preferred Time*</span>
-          <input id="time" type="time" name="time" required aria-required="true" min="09:00" max="18:00" step="900" />
-          <small class="error" aria-live="polite"></small>
-        </label>
-        
-        <label for="notes" class="form-field form-field--full">
-          <span>Special Notes</span>
-          <textarea id="notes" name="notes" rows="4" placeholder="Any special requests, health conditions, or preferences we should know about?" aria-label="Special notes (optional)"></textarea>
-          <small class="error" aria-live="polite"></small>
-        </label>
-        
-        <div class="form-field form-field--full">
-          <div class="form-checkbox">
-            <input id="consent" type="checkbox" name="consent" required aria-required="true" />
-            <label for="consent" class="checkbox-text">I agree to the <a href="#terms" aria-label="Read terms and privacy policy">terms & privacy policy</a> and understand that this is a booking request.</label>
-          </div>
-          <small class="error" aria-live="polite"></small>
-        </label>
-      </div>
-      
-      <div class="form-actions">
-        <button type="submit" class="btn btn-primary" id="submit-btn">Request Booking</button>
-        <div id="form-message" class="form-message" role="alert" aria-live="polite"></div>
-      </div>
-    </form>
-  </div>
-</section>
-
-<style>
-/* Form Messages */
-.form-message {
-  margin-top: 1.5rem;
-  padding: 1rem;
-  border-radius: 8px;
-  text-align: center;
-  display: none;
-  font-weight: 500;
-}
-
-.form-message.success {
-  background-color: rgba(46, 125, 50, 0.2);
-  color: #a5d6a7;
-  border: 1px solid #4caf50;
-}
-
-.form-message.error {
-  background-color: rgba(198, 40, 40, 0.2);
-  color: #ef9a9a;
-  border: 1px solid #f44336;
-}
-
-/* Form Styles */
-.form {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.form-field--full {
-  grid-column: 1 / -1;
-}
-
-.form-field span {
-  color: white;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.form-field input,
-.form-field select,
-.form-field textarea {
-  padding: 12px 16px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.form-field input::placeholder,
-.form-field textarea::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.form-field input:focus,
-.form-field select:focus,
-.form-field textarea:focus {
-  outline: none;
-  border-color: rgba(255, 255, 255, 0.8);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
-}
-
-.form-field select {
-  cursor: pointer;
-}
-
-.form-field select option {
-  background: #1f2937;
-  color: white;
-}
-
-.form-checkbox {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-}
-
-.form-checkbox input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  margin: 0;
-  cursor: pointer;
-  accent-color: #ec4899;
-}
-
-.checkbox-text {
-  color: white;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.checkbox-text a {
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: underline;
-}
-
-.checkbox-text a:hover {
-  color: white;
-}
-
-.error {
-  color: #fecaca;
-  font-size: 0.8rem;
-  margin-top: 0.25rem;
-  display: block;
-}
-
-.form-actions {
-  text-align: center;
-}
-
-.form-actions .btn {
-  min-width: 200px;
-  font-size: 1.1rem;
-  padding: 14px 28px;
-  background: white;
-  color: #ec4899;
-  border: 2px solid white;
-}
-
-.form-actions .btn:hover {
-  background: rgba(255, 255, 255, 0.9);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
-}
-
-.form-status {
-  margin-top: 1rem;
-  color: white;
-  font-weight: 500;
-}
-
-/* Responsive Form */
-@media (max-width: 768px) {
-  .form-grid {
-    grid-template-columns: 1fr;
   }
-  
-  .form-field input,
-  .form-field select,
-  .form-field textarea {
-    padding: 14px 16px;
-    font-size: 16px; /* Prevents zoom on iOS */
-  }
-}
-
-/* Form validation states */
-.form-field input:invalid:not(:placeholder-shown),
-.form-field select:invalid:not(:placeholder-shown) {
-  border-color: #fecaca;
-  background: rgba(254, 202, 202, 0.1);
-}
-
-.form-field input:valid,
-.form-field select:valid {
-  border-color: rgba(34, 197, 94, 0.5);
-}
-
-/* Date and time input styling */
-.form-field input[type="date"],
-.form-field input[type="time"] {
-  color-scheme: dark;
-}
-
-.form-field input[type="date"]::-webkit-calendar-picker-indicator,
-.form-field input[type="time"]::-webkit-calendar-picker-indicator {
-  filter: invert(1);
-  cursor: pointer;
-}
 </style>
 
-<!-- Contact / Footer -->
-<section id="contact" class="section section-alt">
-  <div class="container">
-    <header class="section-header">
-      <h2>Visit Us</h2>
-      <p>3251 N University Dr, Coral Springs, FL 33065 · 954-560-5476 · Info@olgadelgadoesthetics.com</p>
-    </header>
-    <div class="grid contact-grid">
-      <div>
-        <h3>Opening Hours</h3>
-        <ul class="list">
-          <li>Mon – Sat: 10:00 AM – 5:00 PM (Appointments Only)</li>
-          <li>Sun: Closed</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Parking</h3>
-        <p>Street and garage parking available nearby.</p>
-      </div>
-      <div>
-        <h3>Gift Cards</h3>
-        <p>Surprise someone special. Ask us about gift cards!</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <p>&copy; <span id="year"></span> Olga Delgado Aesthetics. All rights reserved.</p>
-    <nav class="footer-nav">
-      <a href="#services" onclick="smoothScroll('#services'); return false;" style="cursor: pointer;">Services</a>
-      <a href="#therapist" onclick="smoothScroll('#therapist'); return false;" style="cursor: pointer;">Therapist</a>
-      <a href="#contact" onclick="smoothScroll('#contact'); return false;" style="cursor: pointer;">Contact</a>
-    </nav>
-  </div>
-</footer>
-
 <script>
-  // Smooth scroll function with offset for fixed header
-  function smoothScroll(target) {
-    const element = document.querySelector(target);
-    if (element) {
-      const headerOffset = 120; // Adjust this value based on your header height
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
+// Auto update year in footer
+document.addEventListener('DOMContentLoaded', function() {
+  // Update copyright year
+  const yearElement = document.getElementById('year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
   }
   
-  // Auto update year in footer
-  document.getElementById('year').textContent = new Date().getFullYear();
-  
-  // Mobile Navigation Toggle
+  // Mobile navigation elements
   const navToggle = document.querySelector('.nav-toggle');
   const mainNav = document.querySelector('.main-nav');
   const overlay = document.querySelector('.overlay');
+  const html = document.documentElement;
   const navLinks = document.querySelectorAll('.main-nav a');
-
+  const sections = document.querySelectorAll('section[id]');
+  
+  // Toggle mobile menu function
   function toggleMobileMenu() {
+    if (!navToggle || !mainNav || !overlay) return;
+    
+    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', !isExpanded);
     mainNav.classList.toggle('active');
     overlay.classList.toggle('active');
-    document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+    
+    // Toggle body scroll and menu state
+    if (!isExpanded) {
+      document.body.style.overflow = 'hidden';
+      html.classList.add('menu-open');
+      // Add inert to main content when menu is open
+      const main = document.querySelector('main');
+      if (main) main.setAttribute('inert', 'true');
+    } else {
+      document.body.style.overflow = 'auto';
+      html.classList.remove('menu-open');
+      // Remove inert when menu is closed
+      const main = document.querySelector('main');
+      if (main) main.removeAttribute('inert');
+    }
+    
+    // Update aria-label for better accessibility
+    const menuState = isExpanded ? 'Open menu' : 'Close menu';
+    navToggle.setAttribute('aria-label', menuState);
   }
-
-  navToggle.addEventListener('click', toggleMobileMenu);
-
-  // Close mobile menu when clicking on overlay or a nav link
-  overlay.addEventListener('click', toggleMobileMenu);
   
+  // Initialize mobile menu toggle
+  if (navToggle) {
+    navToggle.addEventListener('click', toggleMobileMenu);
+  }
+  
+  // Close menu when clicking on overlay
+  if (overlay) {
+    overlay.addEventListener('click', function() {
+      const navToggle = document.querySelector('.nav-toggle');
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        toggleMobileMenu();
+      }
+    });
+  }
+  
+  // Close menu when pressing Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mainNav && mainNav.classList.contains('active')) {
+      toggleMobileMenu();
+    }
+  });
+  
+  // Initialize nav toggle
+  if (navToggle) {
+    navToggle.addEventListener('click', toggleMobileMenu);
+  }
+  
+  // Handle nav link clicks
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
       // Close mobile menu if open on mobile
@@ -1642,15 +937,12 @@
       const href = this.getAttribute('href');
       if (href === '#' || href === '#!') return;
       
-      // Prevent default only for anchor links that scroll
+      // Handle anchor links with smooth scrolling
       if (href.startsWith('#')) {
         e.preventDefault();
-        
         const targetId = href;
         const targetElement = document.querySelector(targetId);
-        
         if (targetElement) {
-          // Calculate the position to scroll to, accounting for the header
           const headerOffset = 100;
           const elementPosition = targetElement.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -1663,47 +955,48 @@
       }
     });
   });
-  
-  // Add active class to current section in navigation
-  const sections = document.querySelectorAll('section[id]');
-  
-  window.addEventListener('scroll', () => {
-    let current = '';
-    
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
+  // Update active navigation link based on scroll position
+  if (sections.length > 0) {
+    function updateActiveNav() {
+      let current = '';
       
-      if (pageYOffset >= sectionTop - 200) {
-        current = section.getAttribute('id');
-      }
-    });
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (window.pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    }
     
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
-  });
+    // Initial call to set active nav on page load
+    updateActiveNav();
+    
+    // Update on scroll
+    window.addEventListener('scroll', updateActiveNav);
+  }
   
   // Close mobile menu when window is resized to desktop
   function handleResize() {
     if (window.innerWidth > 992) {
-      navToggle.setAttribute('aria-expanded', 'false');
-      mainNav.classList.remove('active');
-      overlay.classList.remove('active');
+      if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+      if (mainNav) mainNav.classList.remove('active');
+      if (overlay) overlay.classList.remove('active');
       document.body.style.overflow = 'auto';
     }
     
     // Update form layout for mobile
     const formGrid = document.querySelector('.form-grid');
     if (formGrid) {
-      if (window.innerWidth < 768) {
-        formGrid.style.gridTemplateColumns = '1fr';
-      } else {
-        formGrid.style.gridTemplateColumns = '1fr 1fr';
-      }
+      formGrid.style.gridTemplateColumns = window.innerWidth < 768 ? '1fr' : '1fr 1fr';
     }
   }
   
@@ -1711,60 +1004,70 @@
 
   // Form validation and submission handling
   const bookingForm = document.getElementById('booking-form');
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('date').min = today;
-  
-  // Initialize form validation
-  function validateForm() {
-    let isValid = true;
-    const requiredFields = bookingForm.querySelectorAll('[required]');
+  if (bookingForm) {
+    const today = new Date().toISOString().split('T')[0];
+    const dateInput = document.getElementById('date');
+    if (dateInput) dateInput.min = today;
     
-    requiredFields.forEach(field => {
-      if (!field.value.trim()) {
-        showError(field, 'This field is required');
-        isValid = false;
-      } else if (field.type === 'email' && !isValidEmail(field.value)) {
-        showError(field, 'Please enter a valid email address');
-        isValid = false;
-      } else if (field.type === 'tel' && field.value && !isValidPhone(field.value)) {
-        showError(field, 'Please enter a valid phone number');
-        isValid = false;
-      } else {
-        clearError(field);
+    // Initialize form validation
+    function validateForm() {
+      let isValid = true;
+      const requiredFields = bookingForm.querySelectorAll('[required]');
+      
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          showError(field, 'This field is required');
+          isValid = false;
+        } else if (field.type === 'email' && !isValidEmail(field.value)) {
+          showError(field, 'Please enter a valid email address');
+          isValid = false;
+        } else if (field.type === 'tel' && field.value && !isValidPhone(field.value)) {
+          showError(field, 'Please enter a valid phone number');
+          isValid = false;
+        } else {
+          clearError(field);
+        }
+      });
+      
+      return isValid;
+    }
+    
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+    
+    function isValidPhone(phone) {
+      return /^[\d\s\+\(\)\-]+$/.test(phone);
+    }
+    
+    function showError(field, message) {
+      const formField = field.closest('.form-field');
+      if (!formField) return;
+      
+      let errorElement = formField.querySelector('.error');
+      if (!errorElement) {
+        errorElement = document.createElement('div');
+        errorElement.className = 'error';
+        formField.appendChild(errorElement);
       }
-    });
-    
-    return isValid;
-  }
-  
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-  
-  function isValidPhone(phone) {
-    return /^[\d\s\+\(\)\-]+$/.test(phone);
-  }
-  
-  function showError(field, message) {
-    const errorElement = field.closest('.form-field').querySelector('.error');
-    if (errorElement) {
+      
       errorElement.textContent = message;
       field.setAttribute('aria-invalid', 'true');
     }
-  }
-  
-  function clearError(field) {
-    const errorElement = field.closest('.form-field')?.querySelector('.error');
-    if (errorElement) {
-      errorElement.textContent = '';
-      field.removeAttribute('aria-invalid');
+    
+    function clearError(field) {
+      const errorElement = field.closest('.form-field')?.querySelector('.error');
+      if (errorElement) {
+        errorElement.textContent = '';
+        field.removeAttribute('aria-invalid');
+      }
     }
-  }
-  
-  // Real-time validation
-  bookingForm.addEventListener('input', (e) => {
-    const field = e.target;
-    if (field.hasAttribute('required')) {
+    
+    // Real-time validation
+    bookingForm.addEventListener('input', (e) => {
+      const field = e.target;
+      if (!field.hasAttribute('required')) return;
+      
       if (field.value.trim() === '') {
         showError(field, 'This field is required');
       } else if (field.type === 'email' && !isValidEmail(field.value)) {
@@ -1774,63 +1077,75 @@
       } else {
         clearError(field);
       }
-    }
-  });
-  
-  // Form submission
-  const formMessage = document.getElementById('form-message');
-  const submitBtn = document.getElementById('submit-btn');
-
-  if (bookingForm) {
-    bookingForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      // Validate form before submission
-      if (!validateForm()) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Request Booking';
-        formMessage.textContent = 'Please fill in all required fields correctly.';
-        formMessage.style.display = 'block';
-        formMessage.className = 'form-message error';
-        return;
-      }
-      
-      // Disable submit button to prevent multiple submissions
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-      formMessage.style.display = 'none';
-      
-      try {
-        // Simulate form submission (replace with actual form submission)
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        
-        // Show success message
-        formMessage.textContent = 'Thank you for your booking request! We will contact you shortly to confirm your appointment.';
-        formMessage.className = 'form-message visible success';
-        
-        // Reset form
-        bookingForm.reset();
-        
-        // Scroll to show the success message
-        formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        
-        // Hide message after 10 seconds
-        setTimeout(() => {
-          formMessage.className = 'form-message';
-        }, 10000);
-        
-      } catch (error) {
-        // Show error message
-        formMessage.textContent = 'There was an error submitting your request. Please try again or call us at (954) 560-5476.';
-        formMessage.className = 'form-message visible error';
-        console.error('Form submission error:', error);
-      } finally {
-        // Re-enable submit button
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Request Booking';
-      }
     });
+    
+    // Form submission
+    const formMessage = document.getElementById('form-message');
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (submitBtn) {
+      bookingForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Validate form before submission
+        if (!validateForm()) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Request Booking';
+          if (formMessage) {
+            formMessage.textContent = 'Please fill in all required fields correctly.';
+            formMessage.style.display = 'block';
+            formMessage.className = 'form-message error';
+          }
+          return;
+        }
+        
+        // Disable submit button to prevent multiple submissions
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        if (formMessage) {
+          formMessage.style.display = 'none';
+        }
+        
+        try {
+          // Simulate form submission (replace with actual form submission)
+          await new Promise(resolve => setTimeout(resolve, 1500));
+          
+          // Show success message
+          if (formMessage) {
+            formMessage.textContent = 'Thank you for your booking request! We will contact you shortly to confirm your appointment.';
+            formMessage.className = 'form-message visible success';
+            formMessage.style.display = 'block';
+            
+            // Scroll to show the success message
+            formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Hide message after 10 seconds
+            setTimeout(() => {
+              formMessage.className = 'form-message';
+              formMessage.style.display = 'none';
+            }, 10000);
+          }
+          
+          // Reset form
+          bookingForm.reset();
+          
+        } catch (error) {
+          // Show error message
+          if (formMessage) {
+            formMessage.textContent = 'There was an error submitting your request. Please try again or call us at (954) 560-5476.';
+            formMessage.className = 'form-message visible error';
+            formMessage.style.display = 'block';
+          }
+          console.error('Form submission error:', error);
+        } finally {
+          // Re-enable submit button
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Request Booking';
+        }
+      });
+    }
   }
+}); 
 </script>
 
 </body>
